@@ -1,4 +1,17 @@
 from setuptools import setup, find_packages
+import shutil
+import sys
+
+def is_tool(name):
+    """Check whether `name` is on PATH and marked as executable."""
+    return shutil.which(name) is not None
+
+# Check if Rust and Cargo are installed
+if not is_tool('rustc') or not is_tool('cargo'):
+    print("Rust and Cargo are required for installation.")
+    print("Please make sure Rust and Cargo are installed before installing this package.")
+    sys.exit(1)
+
 with open("requirements.txt", "r") as file:
     requirements = file.readlines()
 
@@ -23,4 +36,4 @@ setup(
         'Operating System :: OS Independent',
         'Topic :: Software Development :: Libraries',
     ],
-)   
+)
