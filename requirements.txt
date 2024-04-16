@@ -1,0 +1,8 @@
+webcolors
+fast_string_match
+unidecode-rs
+aiohttp
+pydantic
+colorgram-rs
+emoji
+discord
